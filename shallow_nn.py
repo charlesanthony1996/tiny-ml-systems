@@ -30,3 +30,6 @@ plt.show()
 
 # relu paper -> https://arxiv.org/pdf/1803.08375
 
+# define a shallow neural network with one input, one output and three hidden units
+def shallow_1_1_3():
+    pass
