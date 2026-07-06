@@ -31,5 +31,29 @@ plt.show()
 # relu paper -> https://arxiv.org/pdf/1803.08375
 
 # define a shallow neural network with one input, one output and three hidden units
-def shallow_1_1_3():
-    pass
+def shallow_1_1_3(x, activation_fn, phi_0, phi_1, phi_2, phi_3, theta_10, theta_11, theta_20, theta_21, theta_30, theta_31):
+
+    # this network is 1 - 3 - 1
+    # full math walkthrough should be able to picture and inject the variables into the network
+
+    # the initial lines
+    # these are the preactivations
+    pre_1 = theta_10 + theta_11 * x
+    pre_2 = theta_20 + theta_21 * x
+    pre_3 = theta_30 + theta_31 * x
+
+    # pass these through the relu functions
+    # to compute the activations
+    act_1 = activation_fn(pre_1)
+    act_2 = activation_fn(pre_2)
+    act_3 = activation_fn(pre_3)
+
+    # weight the activations using phi1, phi2, phi3
+    w_act_1 = phi_1 * act_1
+    w_act_2 = phi_2 * act_2
+    w_act_3 = phi_3 * act_3
+
+    # combine the weighted activations and add phi_0 to create the output
+    y = phi_0 + w_act_1 + w_act_2 + w_act_3
+
+    return y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2, w_act_3
