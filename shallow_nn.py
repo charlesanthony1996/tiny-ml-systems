@@ -57,3 +57,14 @@ def shallow_1_1_3(x, activation_fn, phi_0, phi_1, phi_2, phi_3, theta_10, theta_
     y = phi_0 + w_act_1 + w_act_2 + w_act_3
 
     return y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2, w_act_3
+
+
+# plot the shallow neural network
+# assume => input in the range [0, 1]
+# assume => output in the range [-1, 1]
+def plot_neural(x, y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2, w_act_3, plot_all=False, x_data=None, y_data=None):
+
+    # plot all intermediate points
+
+    
+    return 0
