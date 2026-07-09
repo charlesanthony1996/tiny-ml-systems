@@ -65,6 +65,43 @@ def shallow_1_1_3(x, activation_fn, phi_0, phi_1, phi_2, phi_3, theta_10, theta_
 def plot_neural(x, y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2, w_act_3, plot_all=False, x_data=None, y_data=None):
 
     # plot all intermediate points
+    if plot_all:
+        fig, ax = plt.subplots(3, 3)
+        fig.set_size_inches(8.5, 8.5)
+        fig.tight_layouts(pad=3.0)
+        ax[0, 0].plot(x, pre_1, 'r-')
+        ax[0, 0].set_ylabel("Preactivation")
+
+        ax[0, 1].plot(x, pre_2, 'b-')
+        ax[0, 1].set_ylabel("Preactivation")
+
+        ax[0, 2].plot(x, pre_3, 'g-')
+        ax[0, 2].set_ylabel("Preactivation")
+
+        ax[1, 0].plot(x, act_1, "Activation")
+        ax[1, 0].set_ylabel("Activation")
+
+        ax[1, 1].plot(x, act_2, "Activation")
+        ax[1, 1].set_ylabel("Activation")
+
+    for plot_y in range(3):
+        for plot_x in range(3):
+            ax[plot_y, plot_x].set_xlim([0, 1])
+            ax[plot_x, plot_y].set_ylim([-1, 1])
+        
+        ax[2, plot_y].set_xlabel("Input x")
+    plt.show()
+
+    fig, ax = plt.subplots()
+    ax.plot(x, y)
+    ax.set_xlabel([0, 1])
+    ax.set_ylim([-1, 1])
+    ax.set_aspect(0.5)
+
+    if x_data is not None:
+        ax.plot(x_data, y_data, "mo")
+
+
 
     
     return 0
