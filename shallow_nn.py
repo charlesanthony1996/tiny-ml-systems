@@ -78,17 +78,29 @@ def plot_neural(x, y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2
         ax[0, 2].plot(x, pre_3, 'g-')
         ax[0, 2].set_ylabel("Preactivation")
 
-        ax[1, 0].plot(x, act_1, "Activation")
+        ax[1, 0].plot(x, act_1, "r-")
         ax[1, 0].set_ylabel("Activation")
 
-        ax[1, 1].plot(x, act_2, "Activation")
+        ax[1, 1].plot(x, act_2, "b-")
         ax[1, 1].set_ylabel("Activation")
+
+        ax[1, 2].plot(x, act_3, "g-")
+        ax[1, 2].set_ylabel("Activation")
+
+        ax[2, 0].plot(x, w_act_1, "r-")
+        ax[2, 0].set_ylabel("Weighted Act")
+
+        ax[2, 1].plot(x, w_act_2, "g-")
+        ax[2, 1].set_ylabel("Weighted Act")
+
+        ax[2, 2].plot(x, w_act_3, "b-")
+        ax[2, 2].set_ylabel("Weighted Act")
 
     for plot_y in range(3):
         for plot_x in range(3):
             ax[plot_y, plot_x].set_xlim([0, 1])
             ax[plot_x, plot_y].set_ylim([-1, 1])
-        
+            ax[2, plot_y].set_aspect(0.5)
         ax[2, plot_y].set_xlabel("Input x")
     plt.show()
 
@@ -100,8 +112,26 @@ def plot_neural(x, y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2
 
     if x_data is not None:
         ax.plot(x_data, y_data, "mo")
-
-
-
-    
+        for i in range(len(x_data)):
+            ax.plot(x_data[i], y_data[i])
     return 0
+
+
+# define some parameters and run the neural network
+theta_10 = 0.3
+theta_11 = -1.0
+
+theta_20 = -1.0
+theta_21 = 2.0
+
+theta_30 = -0.5
+theta_31 = 0.65
+
+phi_0 = -0.3
+phi_1 = 2.0
+phi_3 = 7.0
+
+# define a range of input values
+x = np.arange(0, 1, 0.01)
+
+# we run the neural network for each of these input values
