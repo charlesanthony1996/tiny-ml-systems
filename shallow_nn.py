@@ -68,7 +68,7 @@ def plot_neural(x, y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2
     if plot_all:
         fig, ax = plt.subplots(3, 3)
         fig.set_size_inches(8.5, 8.5)
-        fig.tight_layouts(pad=3.0)
+        fig.tight_layout(pad=3.0)
         ax[0, 0].plot(x, pre_1, 'r-')
         ax[0, 0].set_ylabel("Preactivation")
 
@@ -117,6 +117,14 @@ def plot_neural(x, y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2
     return 0
 
 
+def least_squares_loss(y_train, y_predict):
+
+    # loss = 0
+
+    loss = np.sum((y_train - y_predict)**2)
+
+    return loss
+
 # define some parameters and run the neural network
 theta_10 = 0.3
 theta_11 = -1.0
@@ -130,6 +138,7 @@ theta_31 = 0.65
 phi_0 = -0.3
 phi_1 = 2.0
 phi_2 = -1.0
+# phi_3 = 2.0
 phi_3 = 7.0
 
 # define a range of input values
@@ -147,8 +156,16 @@ y_train = np.array([-0.15934537,0.18195445,0.451270150,0.13921448,0.09366691,0.3
 
 # we run the neural network for each of these input values
 y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2, w_act_3 = shallow_1_1_3(
-    x, relu, phi_0, phi_1, phi_2, phi_3, theta_10, theta_11, theta_20, theta_21, theta_30, theta_31
+    x, ReLU, phi_0, phi_1, phi_2, phi_3, theta_10, theta_11, theta_20, theta_21, theta_30, theta_31
 )
 
 
 # and then plot it
+plot_neural(x, y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2, w_act_3, plot_all=True, x_data = x_train, y_data= y_train)
+
+# run the neural network on the training data
+y_predict, *_ = shallow_1_1_3(x_train, ReLU, phi_0, phi_1, phi_2, phi_3, theta_10, theta_11, theta_20, theta_21, theta_30, theta_31)
+
+# compute the least squares loss and print it out
+loss = least_squares_loss(y_train, y_predict)
+print("your loss = %3.3f, True value = 9.385"%(loss))
