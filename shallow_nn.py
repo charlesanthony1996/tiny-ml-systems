@@ -102,6 +102,7 @@ def plot_neural(x, y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2
             ax[plot_x, plot_y].set_ylim([-1, 1])
             ax[2, plot_y].set_aspect(0.5)
         ax[2, plot_y].set_xlabel("Input x")
+    plt.savefig("relu_plot_with_act.png")
     plt.show()
 
     fig, ax = plt.subplots()
