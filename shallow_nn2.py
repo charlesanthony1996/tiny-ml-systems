@@ -33,3 +33,18 @@ def plot_neural_2_inputs(x1, x2, y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_
     # return 0
 
 
+def relu(preactivation):
+
+    activation = preactivation.clip(0.0)
+    return activation
+
+# define a shallow neural network with two inputs, one output and three hidden units
+def shallow_2_1_3(x1, x2, activation_fn, phi_0, phi_1, phi_3, theta_10, theta_11, theta_12, theta_20, theta_21, theta_22, theta_30, theta_31, theta_32):
+
+    pre_1 = np.zeros_like(x1)
+    pre_2 = np.zeros_like(x1)
+    pre_3 = np.zeros_like(x1)
+
+    return 0
+
+
