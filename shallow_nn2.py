@@ -48,3 +48,27 @@ def shallow_2_1_3(x1, x2, activation_fn, phi_0, phi_1, phi_3, theta_10, theta_11
     return 0
 
 
+# defining some parameters and running the nn
+theta_10 = -4.0
+theta_11 = 0.9
+theta_12 = 0.0
+
+theta_20 = 5.0
+theta_21 = -0.9
+theta_22 = -0.5
+
+theta_30 = -7
+theta_31 = 0.5
+theta_32 = 0.9
+
+phi_0 = 0.0
+phi_1 = -2.0
+phi_2 = 2.0
+phi_3 = 1.5
+
+x1 = np.arange(0.0, 10.0, 0.1)
+# print(x1)
+x2 = np.arange(0.0, 10.0, 0.1)
+x1 = np.meshgrid(x1)
+x2 = np.meshgrid(x2)
+
