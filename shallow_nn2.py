@@ -78,10 +78,10 @@ theta_30 = -7
 theta_31 = 0.5
 theta_32 = 0.9
 
-phi_0 = 0.0
-phi_1 = -2.0
-phi_2 = 2.0
-phi_3 = 1.5
+phi_10 = 0.0
+phi_11 = -2.0
+phi_12 = 2.0
+phi_13 = 1.5
 
 x1 = np.arange(0.0, 10.0, 0.1)
 # print(x1)
