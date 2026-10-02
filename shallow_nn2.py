@@ -49,9 +49,20 @@ def shallow_2_1_3(x1, x2, activation_fn, phi_0, phi_1, phi_3, theta_10, theta_11
     pre_2 = theta_20 + theta_21 * x2 + theta_22 * x2
     pre_3 = theta_30 + theta_31 * x1 + theta_32 * x2
 
-    
+    # pass through the activation function
+    act_1 = activation_fn(pre_1)
+    act_2 = activation_fn(pre_2)
+    act_3 = activation_fn(pre_3)
 
-    return 0
+    # weight the activations
+    w_act_1 = phi_1 * act_1
+    w_act_2 = phi_2 * act_2
+    w_act_3 = phi_3 * act_3
+
+    # combine the weights here. add them
+    y = phi_0 + w_act_1 + w_act_2 + w_act_3
+
+    return y, pre_1, pre_2, pre_3, act_1, act_2, act_3, w_act_1, w_act_2, w_act_3
 
 
 # defining some parameters and running the nn
