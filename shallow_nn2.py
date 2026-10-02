@@ -41,9 +41,15 @@ def relu(preactivation):
 # define a shallow neural network with two inputs, one output and three hidden units
 def shallow_2_1_3(x1, x2, activation_fn, phi_0, phi_1, phi_3, theta_10, theta_11, theta_12, theta_20, theta_21, theta_22, theta_30, theta_31, theta_32):
 
-    pre_1 = np.zeros_like(x1)
-    pre_2 = np.zeros_like(x1)
-    pre_3 = np.zeros_like(x1)
+    # pre_1 = np.zeros_like(x1)
+    # pre_2 = np.zeros_like(x1)
+    # pre_3 = np.zeros_like(x1)
+
+    pre_1 = theta_10 + theta_11 * x1 + theta_12 * x2
+    pre_2 = theta_20 + theta_21 * x2 + theta_22 * x2
+    pre_3 = theta_30 + theta_31 * x1 + theta_32 * x2
+
+    
 
     return 0
 
